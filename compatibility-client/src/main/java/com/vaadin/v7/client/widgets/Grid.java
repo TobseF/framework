@@ -15,22 +15,6 @@
  */
 package com.vaadin.v7.client.widgets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.core.shared.GWT;
@@ -93,7 +77,6 @@ import com.vaadin.client.ui.dd.DragHandle;
 import com.vaadin.client.ui.dd.DragHandle.DragHandleCallback;
 import com.vaadin.client.widgets.Overlay;
 import com.vaadin.shared.Range;
-import com.vaadin.shared.Registration;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.shared.util.SharedUtil;
 import com.vaadin.v7.client.renderers.ComplexRenderer;
@@ -194,6 +177,22 @@ import com.vaadin.v7.shared.ui.grid.GridConstants.Section;
 import com.vaadin.v7.shared.ui.grid.GridStaticCellType;
 import com.vaadin.v7.shared.ui.grid.HeightMode;
 import com.vaadin.v7.shared.ui.grid.ScrollDestination;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A data grid view that supports columns and lazy loading of data rows from a
@@ -7022,10 +7021,6 @@ public class Grid<T> extends ResizeComposite implements HasSelectionHandlers<T>,
         }
 
         selectionModel.reset();
-
-        if (this.dataSource != null) {
-            this.dataSource.addDataChangeHandler((DataChangeHandler) null);
-        }
 
         this.dataSource = dataSource;
         dataSource.addDataChangeHandler(new DataChangeHandler() {
